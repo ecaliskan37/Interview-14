@@ -6,20 +6,16 @@ function App() {
   const [list, setList] = useState([])
 
   const fetchList = async () => {
-    return await axios.get(
-      'https://randomuser.me/api?results=5?&format=pretty',
-      {
-        params: {
-          _limit: 19,
-          _start: 5,
-        },
-      }
-    )
+    return await axios.get('https://randomuser.me/api?format=pretty', {
+      params: {
+        page: 1,
+        results: 20,
+      },
+    })
   }
 
   useEffect(() => {
     const response = fetchList()
-
     // const count = response.headers['x-total-count']
 
     response
